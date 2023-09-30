@@ -22,7 +22,7 @@ def export_dataset_to_file(dataset: pd.DataFrame):
     assert c == 3, 'Количество столбцов должно быть 3'
     assert n == 1196590, 'Количество строк должно быть 1196590'
 
-    with open('Data\\Result.txt', 'w') as f:
+    with open('..\\Data\\Result.txt', 'w') as f:
         for i in range(n):
             f.write('%.2f %.2f %.5f\n' % (dataset.x[i], dataset.y[i], dataset.z[i]))
 
