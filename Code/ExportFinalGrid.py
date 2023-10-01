@@ -38,6 +38,7 @@ if __name__ == '__main__':
 
     # save array to the file
     # np.save("Point_dataset_on_map_grid", x_y_z_grid)
+    data1.loc[data1["z"] < 0, "z"] = 10
 
     IO.export_dataset_to_file(data1)
 
