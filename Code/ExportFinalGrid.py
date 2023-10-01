@@ -17,18 +17,20 @@ if __name__ == '__main__':
     unique_data2_x = data2["x"].sort_values().unique()
     unique_data2_y = data2["y"].sort_values().unique()
 
-    x_y_z_grid = np.zeros((len(unique_data2_x), len(unique_data2_y)))
+    # x_y_z_grid = np.zeros((len(unique_data2_x), len(unique_data2_y)))
 
     for i in range(len(data1["z"])):
-        temp_shift_data2_x = data2["x"] - data1["x"].iloc[i]
-        temp_shift_data2_y = data2["y"] - data1["y"].iloc[i]
+        temp_data1_x = data1["x"].iloc[i]
+        temp_data1_y = data1["y"].iloc[i]
 
-        temp_hypot = (temp_shift_data2_x ** 2 + temp_shift_data2_y ** 2) ** 0.5
-        arg_hypot_min = temp_hypot.argmin()
+        index_x = np.searchsorted(unique_data2_x, temp_data1_x)
+        index_y = np.searchsorted(unique_data2_y, temp_data1_y)
 
-        data1["z"].iloc[i] = final_grid[np.argwhere(unique_data2_x == data2["x"].iloc[arg_hypot_min]), np.argwhere(unique_data2_y == data2["y"].iloc[arg_hypot_min])]
 
-        if i % 100 == 0:
+        if unique_data2_x[index_x] == temp_data1_x and unique_data2_y[index_y] == temp_data1_y:
+            data1["z"].iloc[i] = final_grid[index_x][index_y]
+
+        if i % 10000 == 0:
             print(i)
 
 
@@ -36,5 +38,7 @@ if __name__ == '__main__':
 
     # save array to the file
     # np.save("Point_dataset_on_map_grid", x_y_z_grid)
+
+    IO.export_dataset_to_file(data1)
 
 

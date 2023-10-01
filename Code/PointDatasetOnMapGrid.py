@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
         x_y_z_grid[np.argwhere(unique_data2_x == data2["x"].iloc[arg_hypot_min]), np.argwhere(unique_data2_y == data2["y"].iloc[arg_hypot_min])] = data1["z"].iloc[i]
 
-        # save array to the file
-        np.save("Point_dataset_on_map_grid", x_y_z_grid)
+    # save array to the file
+    np.save("Point_dataset_on_map_grid", x_y_z_grid)
 
 
