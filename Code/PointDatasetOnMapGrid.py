@@ -4,7 +4,7 @@ import IO
 if __name__ == '__main__':
 
     file_name1 = "Point_dataset"
-    file_name2 = "Map_3"
+    file_name2 = "Map_1"
 
     data1 = IO.import_dataset_from_file(f"..\\Data\\{file_name1}.txt")
     data2 = IO.import_dataset_from_file(f"..\\Data\\{file_name2}.txt")
@@ -27,6 +27,6 @@ if __name__ == '__main__':
         x_y_z_grid[np.argwhere(unique_data2_x == data2["x"].iloc[arg_hypot_min]), np.argwhere(unique_data2_y == data2["y"].iloc[arg_hypot_min])] = data1["z"].iloc[i]
 
     # save array to the file
-    np.save("Point_dataset_on_map_3_grid", x_y_z_grid)
+    np.save(f"Point_dataset_on_{file_name2}_grid", x_y_z_grid)
 
 
