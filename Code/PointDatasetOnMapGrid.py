@@ -1,7 +1,7 @@
 import numpy as np
 import IO
 
-if __name__ == '__main__':
+def pointDatasetOnMapGrid():
 
     file_name1 = "Point_dataset"
     file_name2 = "Map_1"

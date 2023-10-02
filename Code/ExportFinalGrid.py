@@ -1,7 +1,7 @@
 import numpy as np
 import IO
 
-if __name__ == '__main__':
+def exportFinalGrid():
 
     file_name1 = "Result_schedule"
     file_name2 = "Map_1"
